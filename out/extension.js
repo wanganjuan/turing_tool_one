@@ -4,7 +4,7 @@ const vscode = require("vscode");
 const treeview_1 = require("./tview/treeview");
 const viewframe_1 = require("./tview/viewframe");
 function activate(context) {
-    treeview_1.TreeViewProvider.initTreeViewItem();
+    vscode.window.registerTreeDataProvider('t-view', new treeview_1.TreeViewProvider(context));
     context.subscriptions.push(vscode.commands.registerCommand('turing.tool', (label) => {
         // vscode.window.showInformationMessage(label);
         // 将 context, vscode.ViewColumn.Active, label 传递进去

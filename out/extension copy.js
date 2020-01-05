@@ -2,11 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
 const path = require("path");
-const treeview_1 = require("./tview/treeview");
 function activate(context) {
     // Only allow a single Cat Coder
     let panel = undefined;
-    treeview_1.TreeViewProvider.initTreeViewItem();
     context.subscriptions.push(vscode.commands.registerCommand('turing.tool', () => {
         panel = vscode.window.createWebviewPanel('catCoding', 'Cat Coding', vscode.ViewColumn.One, {
             enableScripts: true,

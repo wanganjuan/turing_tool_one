@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import { TreeViewProvider } from './tview/treeview';
 import { createWebView } from './tview/viewframe'
 export function activate(context: vscode.ExtensionContext) {
-	TreeViewProvider.initTreeViewItem();
+	vscode.window.registerTreeDataProvider('t-view',new TreeViewProvider(context));
 	context.subscriptions.push(vscode.commands.registerCommand('turing.tool', (label) => {
 		// vscode.window.showInformationMessage(label);
         // 将 context, vscode.ViewColumn.Active, label 传递进去
@@ -10,5 +10,4 @@ export function activate(context: vscode.ExtensionContext) {
 		const webView = createWebView(context, vscode.ViewColumn.Active, label);
 		context.subscriptions.push(webView);
 	}));
- 
 }

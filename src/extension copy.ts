@@ -4,7 +4,6 @@ import { TreeViewProvider } from './tview/treeview';
 export function activate(context: vscode.ExtensionContext) {
 	// Only allow a single Cat Coder
 	let panel: vscode.WebviewPanel | undefined = undefined;
-	TreeViewProvider.initTreeViewItem();
   context.subscriptions.push(
     vscode.commands.registerCommand('turing.tool', () => {
       panel = vscode.window.createWebviewPanel(

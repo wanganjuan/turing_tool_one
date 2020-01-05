@@ -1,4 +1,4 @@
-import { TreeItem, TreeItemCollapsibleState, TreeDataProvider, Uri, window } from 'vscode';
+import { TreeItem, TreeItemCollapsibleState, TreeDataProvider, Uri, window, ExtensionContext} from 'vscode';
 import { join } from 'path';
 
 const ITEM_ICON_MAP = new Map<string, string>([
@@ -9,13 +9,14 @@ const ITEM_ICON_MAP = new Map<string, string>([
 
 // 第一步：创建单项的节点(item)的类
 export class TreeItemNode extends TreeItem {
-
     constructor(
         // readonly 只可读
         public readonly label: string,
         public readonly collapsibleState: TreeItemCollapsibleState,
+        public context:ExtensionContext
     ){
         super(label, collapsibleState);
+        this.context = context;
     }
 
     // command: 为每项添加点击事件的命令
@@ -29,28 +30,35 @@ export class TreeItemNode extends TreeItem {
     }
     
     // iconPath： 为该项的图标因为我们是通过上面的 Map 获取的，所以我额外写了一个方法，放在下面
-    iconPath = TreeItemNode.getIconUriForLabel(this.label);
+    iconPath = TreeItemNode.getIconUriForLabel(this.label, this.context);
 
     // __filename：当前文件的路径
     // 重点讲解 Uri.file(join(__filename,'..', '..') 算是一种固定写法 : out文件得原因
     // Uri.file(join(__filename,'..','assert', ITEM_ICON_MAP.get(label)+''));   写成这样图标出不来
     // 所以小伙伴们就以下面这种写法编写
-    static getIconUriForLabel(label: string):Uri {
-        console.log(join(__filename,'..', '..', '..','tview', 'src' ,'assert', ITEM_ICON_MAP.get(label)+''))
-        return Uri.file(join(__filename,'..', '..', '..', 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+''));
+    static getIconUriForLabel(label: string, context:ExtensionContext):Uri {
+        console.log(555, context)
+        return Uri.file(
+            join(context.extensionPath, 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+'')
+          );
+          console.log(context, join(context.extensionPath, 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+''))
+        // return Uri.file(join(__filename,'..', '..', '..', 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+''));
     }
 }
 
 
 
 export class TreeViewProvider implements TreeDataProvider<TreeItemNode>{
+    context:ExtensionContext;
+    constructor (context: ExtensionContext) {
+        this.context = context
+    }
     // 自动弹出的可以暂不理会
     onDidChangeTreeData?: import("vscode").Event<TreeItemNode | null | undefined> | undefined;    
     
     // 自动弹出
     // 获取树视图中的每一项 item,所以要返回 element
     getTreeItem(element: TreeItemNode): TreeItem | Thenable<TreeItem> {
-        console.log(element);
         return element;
     }
 
@@ -61,24 +69,25 @@ export class TreeViewProvider implements TreeDataProvider<TreeItemNode>{
         return ['模型可视化'].map(
         
             item => {
+                console.log(this.context)
                 return  new TreeItemNode(
                     item as string,
                     TreeItemCollapsibleState.None as TreeItemCollapsibleState,
+                    this.context
                 )
             }
         )
     }
 
-    // 这个静态方法时自己写的，你要写到 extension.ts 也可以
-    public static initTreeViewItem(){
-        console.log(123)
-        // 实例化 TreeViewProvider
-        const treeViewProvider = new TreeViewProvider();
+    // // 这个静态方法时自己写的，你要写到 extension.ts 也可以
+    // public initTreeViewItem(context: ExtensionContext){
+    //     // 实例化 TreeViewProvider
+    //     const treeViewProvider = new TreeViewProvider(context);
         
-        // registerTreeDataProvider：注册树视图
-        // 你可以类比 registerCommand(上面注册 Hello World)
-        window.registerTreeDataProvider('t-view',treeViewProvider);
-    }
+    //     // registerTreeDataProvider：注册树视图
+    //     // 你可以类比 registerCommand(上面注册 Hello World)
+    //     window.registerTreeDataProvider('t-view',treeViewProvider);
+    // }
 }
 
 
