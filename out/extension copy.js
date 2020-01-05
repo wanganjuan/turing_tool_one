@@ -15,8 +15,8 @@ function activate(context) {
         const onDiskPath = vscode.Uri.file(path.join(context.extensionPath, 'source', 'icon.png'));
         console.log(context.extensionPath, onDiskPath);
         // And get the special URI to use with the webview
-        const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
-        panel.webview.html = getWebviewContent(catGifSrc, panel.webview, context);
+        //   const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
+        // 		panel.webview.html = getWebviewContent(catGifSrc, 	panel.webview, context);
         // Handle messages from the webview
         panel.webview.onDidReceiveMessage(message => {
             switch (message.command) {

@@ -22,9 +22,9 @@ export function activate(context: vscode.ExtensionContext) {
       );
 	  console.log(context.extensionPath, onDiskPath)
       // And get the special URI to use with the webview
-      const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
+    //   const catGifSrc = panel.webview.asWebviewUri(onDiskPath);
 				
-			panel.webview.html = getWebviewContent(catGifSrc, 	panel.webview, context);
+	// 		panel.webview.html = getWebviewContent(catGifSrc, 	panel.webview, context);
 			// Handle messages from the webview
 			panel.webview.onDidReceiveMessage(
 				message => {

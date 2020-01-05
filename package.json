@@ -1,9 +1,9 @@
 {
 	"name": "turing-tool",
 	"displayName": "turing_tool",
-	"description": "turing tool",
-	"publisher": "wjhs",
-	"version": "0.0.1",
+	"description": "Turing  Platform provides various program tools",
+	"publisher": "TURING-TEAM-DEV",
+	"version": "0.0.2",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
