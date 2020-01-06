@@ -25,6 +25,21 @@ export function activate(context: vscode.ExtensionContext) {
 				retainContextWhenHidden: true
 			}
 		);
+		console.log(context.subscriptions)
+			panel.webview.onDidReceiveMessage(
+				message => {
+					switch (message.command) {
+						case 'alertE':
+							vscode.window.showErrorMessage(message.text);
+							return;
+						case 'alertI':
+							vscode.window.showInformationMessage(message.text);
+							return;
+					}
+				},
+				undefined,
+				context.subscriptions
+			);
 		panel.webview.html = getWebViewContent(context, 'media/index.html');
 	}))
 }

@@ -204,7 +204,7 @@ host.BrowserHost = class {
     }
 
     error(message, detail) {
-        alert((message == 'Error' ? '' : message + ' ') + detail);
+        valert(message == 'Error' ? 'alertE':'alertI', (message == 'Error' ? '' : message + ' ') + detail);
     }
 
     confirm(message, detail) {

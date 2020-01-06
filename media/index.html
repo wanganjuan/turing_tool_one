@@ -136,8 +136,13 @@
 <script type="text/javascript" src="./index.js"></script>
 <script>
     var _path = document.querySelectorAll('script')[17].src.substring(0, document.querySelectorAll('script')[17].src.lastIndexOf('/')+ 1)
-    // console.log(document.querySelectorAll('script')[17])
-    // console.log(document.querySelectorAll('script')[17].src.substring(0, document.querySelectorAll('script')[17].src.lastIndexOf('/')+ 1))
+    const vscode = acquireVsCodeApi();
+    function valert(type, msg) {
+        vscode.postMessage({
+            command: type,
+            text: msg
+        })
+    }
 </script>
 </body>
 </html>
