@@ -1,10 +1,10 @@
 {
 	"name": "turing-tool",
-	"displayName": "turing_tool",
+	"displayName": "TuringTool",
 	"description": "Turing  Platform provides various program tools",
 	"publisher": "TURING-TEAM-DEV",
 	"icon": "source/ico1n.png",
-	"version": "0.0.6",
+	"version": "0.0.7",
 	"engines": {
 		"vscode": "^1.41.0"
 	},
@@ -27,7 +27,7 @@
 			"activitybar": [
 				{
 					"id": "turing-id",
-					"title": "图聆小工具",
+					"title": "图聆产品",
 					"icon": "source/icon.png"
 				}
 			]

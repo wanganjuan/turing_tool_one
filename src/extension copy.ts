@@ -11,8 +11,8 @@ export function activate(context: vscode.ExtensionContext) {
         'Cat Coding',
         vscode.ViewColumn.One,
         {
-			enableScripts: true,
-			// retainContextWhenHidden: true // webview被隐藏时保持状态，避免被重置
+					enableScripts: true,
+					// retainContextWhenHidden: true // webview被隐藏时保持状态，避免被重置
 			}
       );
       // Get path to resource on disk
