@@ -6,6 +6,7 @@ const viewframe_1 = require("./viewframe");
 function activate(context) {
     vscode.window.registerTreeDataProvider('t-view', new treeview_1.TreeViewProvider(context));
     context.subscriptions.push(vscode.commands.registerCommand('turing.tool', (label) => {
+        vscode.window.setStatusBarMessage('你好，欢迎来到图聆！');
         // vscode.window.showInformationMessage(label);
         // 将 context, vscode.ViewColumn.Active, label 传递进去
         // vscode.ViewColumn.Active: 表示当前选中的面板
