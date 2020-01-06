@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
 const path_1 = require("path");
 const ITEM_ICON_MAP = new Map([
-    ['模型可视化', 'tree1.png']
+    ['模型可视化', 'tree1.svg']
     // ['pig2', 'pig2.svg'],
     // ['pig3', 'pig3.svg']
 ]);

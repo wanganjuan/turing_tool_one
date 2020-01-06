@@ -2,7 +2,7 @@ import { TreeItem, TreeItemCollapsibleState, TreeDataProvider, Uri, window, Exte
 import { join } from 'path';
 
 const ITEM_ICON_MAP = new Map<string, string>([
-    ['模型可视化', 'tree1.png']
+    ['模型可视化', 'tree1.svg']
     // ['pig2', 'pig2.svg'],
     // ['pig3', 'pig3.svg']
 ]);
