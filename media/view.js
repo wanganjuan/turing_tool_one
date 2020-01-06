@@ -827,27 +827,27 @@ view.View = class {
     }
 
     applyStyleSheet(element, name) {
-        let rules = [];
-        for (let i = 0; i < this._host.document.styleSheets.length; i++) {
-            let styleSheet = this._host.document.styleSheets[i];
-            if (styleSheet && styleSheet.href && styleSheet.href.endsWith('/' + name)) {
-                rules = styleSheet.cssRules;
-                break;
-            }
-        }
-        let nodes = element.getElementsByTagName('*');
-        for (let j = 0; j < nodes.length; j++) {
-            let node = nodes[j];
-            for (let k = 0; k < rules.length; k++) {
-                let rule = rules[k];
-                if (node.matches(rule.selectorText)) {
-                    for (let l = 0; l < rule.style.length; l++) {
-                        let item = rule.style.item(l);
-                        node.style[item] = rule.style[item];
-                    }
-                }
-            }
-        }
+        // let rules = [];
+        // for (let i = 0; i < this._host.document.styleSheets.length; i++) {
+        //     let styleSheet = this._host.document.styleSheets[i];
+        //     if (styleSheet && styleSheet.href && styleSheet.href.endsWith('/' + name)) {
+        //         rules = styleSheet.cssRules;
+        //         break;
+        //     }
+        // }
+        // let nodes = element.getElementsByTagName('*');
+        // for (let j = 0; j < nodes.length; j++) {
+        //     let node = nodes[j];
+        //     for (let k = 0; k < rules.length; k++) {
+        //         let rule = rules[k];
+        //         if (node.matches(rule.selectorText)) {
+        //             for (let l = 0; l < rule.style.length; l++) {
+        //                 let item = rule.style.item(l);
+        //                 node.style[item] = rule.style[item];
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     export(file) {
@@ -889,7 +889,7 @@ view.View = class {
             backgroundElement.setAttribute('fill', '#fff');
     
             const data = new XMLSerializer().serializeToString(exportElement);
-    
+            debugger
             if (extension == 'svg') {
                 const blob = new Blob([ data ], { type: 'image/svg' });
                 this._host.export(file, blob);
