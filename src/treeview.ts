@@ -39,7 +39,7 @@ export class TreeItemNode extends TreeItem {
     static getIconUriForLabel(label: string, context:ExtensionContext):Uri {
         console.log(555, context)
         return Uri.file(
-            join(context.extensionPath, 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+'')
+            join(context.extensionPath, 'source', ITEM_ICON_MAP.get(label)+'')
           );
           console.log(context, join(context.extensionPath, 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+''))
         // return Uri.file(join(__filename,'..', '..', '..', 'src', 'tview','assert', ITEM_ICON_MAP.get(label)+''));

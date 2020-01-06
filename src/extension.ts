@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { TreeViewProvider } from './tview/treeview';
-import { createWebView } from './tview/viewframe'
+import { TreeViewProvider } from './treeview';
+import { createWebView } from './viewframe'
 export function activate(context: vscode.ExtensionContext) {
 	vscode.window.registerTreeDataProvider('t-view',new TreeViewProvider(context));
 	context.subscriptions.push(vscode.commands.registerCommand('turing.tool', (label) => {

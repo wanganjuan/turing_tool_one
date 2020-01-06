@@ -3,7 +3,7 @@
 	"displayName": "turing_tool",
 	"description": "Turing  Platform provides various program tools",
 	"publisher": "TURING-TEAM-DEV",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"engines": {
 		"vscode": "^1.41.0"
 	},

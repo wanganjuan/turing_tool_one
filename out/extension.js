@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode = require("vscode");
-const treeview_1 = require("./tview/treeview");
-const viewframe_1 = require("./tview/viewframe");
+const treeview_1 = require("./treeview");
+const viewframe_1 = require("./viewframe");
 function activate(context) {
     vscode.window.registerTreeDataProvider('t-view', new treeview_1.TreeViewProvider(context));
     context.subscriptions.push(vscode.commands.registerCommand('turing.tool', (label) => {

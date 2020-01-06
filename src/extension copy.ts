@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import { TreeViewProvider } from './tview/treeview';
+import { TreeViewProvider } from './treeview';
 export function activate(context: vscode.ExtensionContext) {
 	// Only allow a single Cat Coder
 	let panel: vscode.WebviewPanel | undefined = undefined;
