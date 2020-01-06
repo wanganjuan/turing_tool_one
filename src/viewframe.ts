@@ -63,6 +63,7 @@ export function getIframeHtml(label: string) {
             .iframeDiv {
                 width: 100%;
                 height: 100%;
+                border: none;
             }
         </style>
         </head>
