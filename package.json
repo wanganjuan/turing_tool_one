@@ -4,7 +4,7 @@
 	"description": "Turing  Platform provides various program tools",
 	"publisher": "TURING-TEAM-DEV",
 	"icon": "source/ico1n.png",
-	"version": "0.0.9",
+	"version": "0.1.0",
 	"engines": {
 		"vscode": "^1.41.0"
 	},

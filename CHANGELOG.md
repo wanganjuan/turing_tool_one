@@ -1,9 +1,17 @@
-# Change Log
-
-All notable changes to the "turing-tool" extension will be documented in this file.
-
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+# Changelog
+记录主要版本记录
 
 ## [Unreleased]
 
-- Initial release
+## [0.1.0] - 2020-01-06
+### modify
+- 不采用实现iframe 
+- netron 资源直接集成vscode
+
+## [0.0.5] - 2020-01-05
+### Added
+- 实现iframe 集成vscode
+
+## [0.0.1] - 2020-01-05
+### Added
+- 初版，基础框架
